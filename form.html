@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Kontak</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #6a1b9a;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        nav button {
+            background-color: #8e24aa;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        nav button:hover {
+            background-color: #6a1b9a;
+        }
+        section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            margin: 20px;
+            text-align: center;
+        }
+        h2 {
+            margin: 0 0 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #8e24aa;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #6a1b9a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Formulir Kontak</h1>
+    </header>
+    <nav>
+        <button onclick="location.href='index.html'">Home</button>
+        <button onclick="location.href='aboutme.html'">About Me</button>
+        <button onclick="location.href='Biodata.html'">Biodata</button>
+        <button onclick="location.href='hobi.html'">Hobi</button>
+    </nav>
+    <section>
+        <h2>Formulir Kontak</h2>
+        <form id="contactForm">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="pesan">Pesan:</label>
+            <textarea id="pesan" name="pesan" rows="4" required></textarea>
+            <input type="submit" value="Kirim">
+        </form>
+    </section>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            for (let pair of formData.entries()) {
+                console.log(pair[0] + ': ' + pair[1]);
+            }
+            this.reset();
+        });
+    </script>
+</body>
+</html>
